@@ -1,0 +1,2 @@
+# Progecte Arcade
+En aquest projecte, he decidit fer una "__*maquina arcade*__" on es podra executar una maquina amb "__*Pedra, Paper, Tisores*__", que no nessesita introducció, i "__*Endevina el Nombre*__", on has d'endevinar un nombre aleatori de l'1 al 100, escollit de forma aleatoria.
