@@ -11,7 +11,6 @@ def janken():
         rondes_maquina = 0
         if dificultat not in ["3","5"]:
             print("opció no vàlida, torna-ho a intentar")
-            continue
         elif dificultat == "3":
             while rondes_usuari < 4 and rondes_maquina < 4:
                 eleccio = input("Escull pedra, paper o tisores (S/s per sortir): ")
