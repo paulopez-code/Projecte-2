@@ -1,4 +1,4 @@
-from jocs import janken as janken_game, nana as nana_game
+import jocs
 from time import sleep
 def main():
     while True:
@@ -8,10 +8,10 @@ def main():
         print("S/s Sortir")
         joc = input("Tria un joc o surt: ")
         if joc == "1":
-            janken_game()
+            jocs.janken()
             sleep(3)
         elif joc == "2":
-            nana_game()
+            jocs.nana()
             sleep(3)
         elif joc in ("S", "s"):
             print("Fins la proxima! Esperem que t'ho hagis passat bé!")
