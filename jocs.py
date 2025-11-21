@@ -3,6 +3,8 @@ import random
 def janken():
     opcions = ["pedra", "paper", "tisores"]
     while True:
+        victoria = False
+        derrota = False
         dificultat = input("vols jugar al millor de 3 rondes o al millor de 5? (S/s per sortir) ")
         if dificultat == "S" or dificultat == "s":
             print("Fins la propera!")
@@ -12,7 +14,7 @@ def janken():
         if dificultat not in ["3","5"]:
             print("opció no vàlida, torna-ho a intentar")
         elif dificultat == "3":
-            while rondes_usuari < 4 and rondes_maquina < 4:
+            while victoria == False and derrota == False:
                 eleccio = input("Escull pedra, paper o tisores (S/s per sortir): ")
                 eleccio_maquina = robot().playing()
                 if eleccio not in opcions:
@@ -42,12 +44,13 @@ def janken():
                     break
                 elif rondes_usuari == 3:
                     print("Enhorabona! Has guanyat la partida!")
-                    break
+                    victoria = True
                 elif rondes_maquina == 3:
                     print("La màquina ha guanyat la partida. Millor sort la pròxima vegada!")
                     break
+                derrota = True
         elif dificultat == "5":
-            while rondes_usuari < 6 and rondes_maquina < 6:
+            while victoria == False and derrota == False:
                 eleccio = input("Escull pedra, paper o tisores (S/s per sortir): ")
                 eleccio_maquina = robot().playing()
                 if eleccio not in opcions:
@@ -77,10 +80,10 @@ def janken():
                     break
                 elif rondes_usuari == 5:
                     print("Enhorabona! Has guanyat la partida!")
-                    break
+                    victoria = True
                 elif rondes_maquina == 5:
                     print("La màquina ha guanyat la partida. Millor sort la pròxima vegada!")
-                    break
+                    derrota = True
 def nana():
     Nombre_escollit = random.randint(1, 100)
     cont = 0
@@ -105,7 +108,7 @@ def nana():
         else:
             print("Si us plau, introdueix un nombre vàlid.")
     if endevinat == True:
-        tornar_joc = input ("Escriu si per tornar a juga i qualsevol altra cosa per sortir: ")
+        tornar_joc = input ("Escriu si per tornar a juga i no per sortir: ")
     if tornar_joc == "si" or tornar_joc == "Si":
         nana()
     else:
