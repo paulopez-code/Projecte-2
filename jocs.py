@@ -1,6 +1,5 @@
 from robot import robot
 import random
-from time import sleep
 def janken():
     opcions = ["pedra", "paper", "tisores"]
     while True:
@@ -83,8 +82,6 @@ def janken():
                 elif rondes_maquina == 5:
                     print("La màquina ha guanyat la partida. Millor sort la pròxima vegada!")
                     break
-
-
 def nana():
     Nombre_escollit = random.randint(1, 100)
     cont = 0
