@@ -87,23 +87,29 @@ def nana():
     endevinat = False
     while not endevinat:
         Nombre = input("Digues un nombre de l'1 al 100, o S/s per sortir: ")
+        Nombre_int = int(Nombre)
+        cont += 1
         if Nombre in ("S", "s"):
             print("has sortit del joc")
             break
-        try:
-            Nombre_int = int(Nombre)
-        except ValueError:
-            print("Si us plau, introdueix un nombre vàlid.")
+        elif Nombre_int < 1 or Nombre_int > 100:
+            print("Si us plau, introdueix un nombre de l'1 al 100.")
             continue
-        cont += 1
         if Nombre_int < Nombre_escollit:
             print("el nombre es massa petit")
         elif Nombre_int > Nombre_escollit:
             print("el nombre es massa gran")
-        else:
+        elif Nombre_int == Nombre_escollit:
             print("Felicitats! Has encertat el nombre en", cont, "intents")
             endevinat = True
-
+        else:
+            print("Si us plau, introdueix un nombre vàlid.")
+    if endevinat == True:
+        tornar_joc = input ("Escriu si per tornar a juga i qualsevol altra cosa per sortir: ")
+    if tornar_joc == "si" or tornar_joc == "Si":
+        nana()
+    else:
+        print("Fins la propera!")
 
 if __name__ == "__main__":
     janken()
