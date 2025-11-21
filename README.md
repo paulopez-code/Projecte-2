@@ -1,2 +1,3 @@
 # Progecte Arcade
 En aquest projecte, he decidit fer una "__*maquina arcade*__" on es podra executar una maquina amb "__*Pedra, Paper, Tisores*__", que no nessesita introducció, i "__*Endevina el Nombre*__", on has d'endevinar un nombre aleatori de l'1 al 100, escollit de forma aleatoria.
+Per a executar el projecte, s'ha d'executar el programa "__*main.py*__", on et donara les opcions dels programes posibles: "__*Pedra, Paper, Tisores*__" i "__*Endevina el Nombre*__" amb el nombre 1 i 2 respectivament, i si prefereixes sortir, S/s. En ser executats, els jocs et donaran les opcions que pots donar per a jugar, i et faran saver si has introduit un caracter, digit o paraula no valid.
