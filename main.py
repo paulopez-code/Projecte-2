@@ -7,18 +7,19 @@ def main():
         print("2. Endevina el nombre")
         print("S/s Sortir")
         joc = input("Tria un joc o surt: ")
-        if joc == "1":
-            jocs.janken()
-            sleep(3)
-        elif joc == "2":
-            jocs.nana()
-            sleep(3)
-        elif joc in ("S", "s"):
-            print("Fins la proxima! Esperem que t'ho hagis passat bé!")
-            break
-        else:
-            print("Opció no vàlida. Introdueix una vàlida.")
-            sleep(3)
+        match joc:
+            case '1':
+                jocs.janken()
+                sleep(3)
+            case '2':
+                jocs.nana()
+                sleep(3)
+            case 'S' | 's':
+                print("Fins la proxima! Esperem que t'ho hagis passat bé!")
+                break
+            case _:
+                print("Opció no vàlida. Introdueix una vàlida.")
+                sleep(3)
 
 
 if __name__ == "__main__":
