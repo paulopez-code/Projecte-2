@@ -1,5 +1,5 @@
 # importem robot de robot.py
-from robot import robot
+import robot
 # importem la llibreria random per a la generació de nombres aleatoris en la funció nana
 import random
 # Joc de pedra, paper o tisores contra la màquina
@@ -25,7 +25,7 @@ def janken():
         # Si la dificultat és de 3 rondes entrem a la partida amb les condicions corresponents
         if dificultat == "3":
             while not victoria:
-                # Demanem l'elecció de l'usuari, activem la maquina, i comprovem les possibles jugades i els reusltats corresponents
+                # Demanem l'elecció de l'usuari, revem la resposta de la maquina, i comprovem les possibles jugades i els reusltats corresponents
                 eleccio = input("Escull pedra, paper o tisores (S/s per sortir): ")
                 eleccio_maquina = robot().playing()
                 if eleccio not in opcions:
@@ -130,7 +130,29 @@ def nana():
         # Comprovem que l'entrada de l'usuari sigui un nombre vàlid
         if not Nombre.isdigit():
             print("Si us plau, introdueix un nombre vàlid.")
+# Comencem la funció del joc de moneda
+def moneda():
+    # Definim les opcions disponibles i que la variable victoria sigui falsa
+    opcions = ["cara", "creu"]
+    victoria = False
+    # Comencem el bucle principal del joc on l'usuari ha d'introduir la seva predicció
+    while not victoria:
+        eleccio = input("Escull cara o creu (S/s per sortir): ")
+        # Activem la classe "moneda" de robot per a obtenir una elecció aleatòria
+        eleccio_moneda = robot.moneda().playing()
+        # Comprovem que l'elecció de l'usuari sigui vàlida, correcta, incorrecta o si vol sortir
+        if eleccio not in opcions:
+            print("Elecció no vàlida. Torna-ho a intentar.")
+        if eleccio == eleccio_moneda:
+            print("Felicitats, has guanyat! La moneda ha caigut en", eleccio_moneda)
+            victoria = True
+        if eleccio != eleccio_moneda:
+            print("Has perdut! La moneda ha caigut en", eleccio_moneda)
+        if eleccio == "S" or eleccio == "s":
+            print("Fins la propera!")
+            break
 # Tanquem les funcions com a funcions principals de jocs.py per a poder ser utilitzades des de main.py més fàcilment
 if __name__ == "__main__":
     janken()
     nana()
+    moneda()

@@ -9,6 +9,7 @@ def main():
         print("--Benvingut/da al miniarcade!--")
         print("1. Pedra, paper, tisores")
         print("2. Endevina el nombre")
+        print("3. Cara o creu")
         print("S/s Sortir")
         # Demanem a l'usuari que triï un joc o que surti del menu
         joc = input("Tria un joc o surt: ")
@@ -19,6 +20,9 @@ def main():
                 sleep(3)
             case '2':
                 jocs.nana()
+                sleep(3)
+            case '3':
+                jocs.moneda()
                 sleep(3)
             case 'S' | 's':
                 print("Fins la proxima! Esperem que t'ho hagis passat bé!")
