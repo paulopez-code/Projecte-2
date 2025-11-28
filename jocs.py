@@ -27,7 +27,7 @@ def janken():
             while not victoria:
                 # Demanem l'elecció de l'usuari, revem la resposta de la maquina, i comprovem les possibles jugades i els reusltats corresponents
                 eleccio = input("Escull pedra, paper o tisores (S/s per sortir): ")
-                eleccio_maquina = robot().playing()
+                eleccio_maquina = robot.robot().playing()
                 if eleccio not in opcions:
                     print("Elecció no vàlida. Torna-ho a intentar.")
                 if eleccio == eleccio_maquina:
@@ -139,7 +139,7 @@ def moneda():
     while not victoria:
         eleccio = input("Escull cara o creu (S/s per sortir): ")
         # Activem la classe "moneda" de robot per a obtenir una elecció aleatòria
-        eleccio_moneda = robot.moneda().playing()
+        eleccio_moneda = robot.moneda().play()
         # Comprovem que l'elecció de l'usuari sigui vàlida, correcta, incorrecta o si vol sortir
         if eleccio not in opcions:
             print("Elecció no vàlida. Torna-ho a intentar.")

@@ -12,6 +12,6 @@ class moneda:
     name = "moneda"
     game = ["cara", "creu"]
 
-    def playing(self):
+    def play(self):
         choice = random.choice(self.game)
         return choice
