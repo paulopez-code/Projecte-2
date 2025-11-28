@@ -146,10 +146,12 @@ def moneda():
         if eleccio == eleccio_moneda:
             print("Felicitats, has guanyat! La moneda ha caigut en", eleccio_moneda)
             victoria = True
-        if eleccio != eleccio_moneda:
+        if eleccio == "cara" and eleccio_moneda == "creu":
+            print("Has perdut! La moneda ha caigut en", eleccio_moneda)
+        if eleccio == "creu" and eleccio_moneda == "cara":
             print("Has perdut! La moneda ha caigut en", eleccio_moneda)
         if eleccio == "S" or eleccio == "s":
-            print("Fins la propera!")
+            print("Fins la següent partida!")
             break
 # Tanquem les funcions com a funcions principals de jocs.py per a poder ser utilitzades des de main.py més fàcilment
 if __name__ == "__main__":
