@@ -1,19 +1,31 @@
+# importem robot de robot.py
 from robot import robot
+# importem la llibreria random per a la generació de nombres aleatoris en la funció nana
 import random
+# Joc de pedra, paper o tisores contra la màquina
 def janken():
+    # Definim les opcions disponibles
     opcions = ["pedra", "paper", "tisores"]
+    # Bucle principal del joc
     while True:
+        # La variable victoria controla quan acaba el joc
         victoria = False
+        # Preguntem la dificultat del joc segons el nombre de rondes: 3 o 5 rondes, més l'opció  de sortir
         dificultat = input("vols jugar al millor de 3 rondes o al millor de 5? (S/s per sortir) ")
+        # Si l'usuari vol sortir, trenquem el bucle
         if dificultat == "S" or dificultat == "s":
             print("Fins la propera!")
             break
+        # Inicialitzem els comptadors de rondes guanyades per a l'usuari i la maquina.
         rondes_usuari = 0
         rondes_maquina = 0
+        # Comprovem que la dificultat sigui vàlida, sinó tornem a demanar-la
         if dificultat not in ["3","5"]:
             print("opció no vàlida, torna-ho a intentar")
-        elif dificultat == "3":
+        # Si la dificultat és de 3 rondes entrem a la partida amb les condicions corresponents
+        if dificultat == "3":
             while not victoria:
+                # Demanem l'elecció de l'usuari, activem la maquina, i comprovem les possibles jugades i els reusltats corresponents
                 eleccio = input("Escull pedra, paper o tisores (S/s per sortir): ")
                 eleccio_maquina = robot().playing()
                 if eleccio not in opcions:
@@ -38,6 +50,7 @@ def janken():
                 if (eleccio == "tisores" and eleccio_maquina == "pedra"):
                     print("Has perdut! La màquina ha escollit", eleccio_maquina)
                     rondes_maquina += 1
+                # S'identifica si l'usuari vol sortir del joc, ha guanyat o ha perdut
                 if eleccio == "S" or eleccio == "s":
                     print("Fins la propera!")
                     break
@@ -47,8 +60,10 @@ def janken():
                 if rondes_maquina == 3:
                     print("La màquina ha guanyat la partida. Millor sort la pròxima vegada!")
                     victoria = True
-        elif dificultat == "5":
+        # Si la dificultat és de 5 rondes entrem a la partida
+        if dificultat == "5":
             while not victoria:
+                # Demanem l'elecció de l'usuari, activem la maquina, i comprovem les possibles jugades i els reusltats corresponents
                 eleccio = input("Escull pedra, paper o tisores (S/s per sortir): ")
                 eleccio_maquina = robot().playing()
                 if eleccio not in opcions:
@@ -73,6 +88,7 @@ def janken():
                 if (eleccio == "tisores" and eleccio_maquina == "pedra"):
                     print("Has perdut! La màquina ha escollit", eleccio_maquina)
                     rondes_maquina += 1
+                # S'identifica si l'usuari vol sortir del joc, ha guanyat o ha perdut
                 if eleccio == "S" or eleccio == "s":
                     print("Fins la propera!")
                     break
@@ -82,20 +98,28 @@ def janken():
                 if rondes_maquina == 5:
                     print("La màquina ha guanyat la partida. Millor sort la pròxima vegada!")
                     victoria = True
+# Comencem la funcio del joc d'endevinar un nombre entre l'1 i el 100
 def nana():
+    # Generem un nombre aleatori entre l'1 i el 100
     Nombre_escollit = random.randint(1, 100)
+    # El comptador d'intents s'inicia des de 0 en cada partida
     cont = 0
+    # La variable endevinat controla quan acaba el joc
     endevinat = False
     while not endevinat:
+        # Es pregunta a l'usuari si vol sortir, o que trii un nombre dintre de les possibles respostes
         Nombre = input("Digues un nombre de l'1 al 100, o S/s per sortir: ")
+        # Si l'usuari vol sortir, trenquem el bucle
         if Nombre == 's' or Nombre == 'S':
             print("has sortit del joc")
             break
+        # Convertim la resposta de l'usuari a enter per a poder comparar-la amb el nombre escollit i sumem un intent cada cop
         Nombre_int = int(Nombre)
         cont += 1
+        # Comprovem si el nombre està dintre del rang permès
         if Nombre_int < 1 or Nombre_int > 100:
             print("Si us plau, introdueix un nombre de l'1 al 100.")
-            continue
+        # Comprovem si el nombre és massa petit, massa gran o el nombre es correcte
         if Nombre_int < Nombre_escollit:
             print("el nombre es massa petit")
         if Nombre_int > Nombre_escollit:
@@ -103,8 +127,10 @@ def nana():
         if Nombre_int == Nombre_escollit:
             print("Felicitats! Has encertat el nombre en", cont, "intents")
             endevinat = True
+        # Comprovem que l'entrada de l'usuari sigui un nombre vàlid
         if not Nombre.isdigit():
             print("Si us plau, introdueix un nombre vàlid.")
+# Tanquem les funcions com a funcions principals de jocs.py per a poder ser utilitzades des de main.py més fàcilment
 if __name__ == "__main__":
     janken()
     nana()
