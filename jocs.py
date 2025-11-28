@@ -133,7 +133,7 @@ def nana():
 # Comencem la funció del joc de moneda
 def moneda():
     # Definim les opcions disponibles i que la variable victoria sigui falsa
-    opcions = ["cara", "creu"]
+    opcions = ["cara", "creu", "S", "s"]
     victoria = False
     # Comencem el bucle principal del joc on l'usuari ha d'introduir la seva predicció
     while not victoria:
